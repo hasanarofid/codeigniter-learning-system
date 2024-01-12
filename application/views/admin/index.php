@@ -1,13 +1,13 @@
 <!--
-@Project: Learnify
+@Project: Skybook
 @Programmer: Syauqi Zaidan Khairan Khalaf
 @Website: https://linktr.ee/syauqi
 @Email : syaokay@gmail.com
 
-@About-Learnify :
+@About-Skybook :
 Web Edukasi Open Source yang dibuat oleh Syauqi Zaidan Khairan Khalaf.
-Learnify adalah Web edukasi yang dilengkapi video, materi dan sistem ujian
-yang tersedia secara gratis. Learnify dibuat ditujukan agar para siswa dan
+Skybook adalah Web edukasi yang dilengkapi video, materi dan sistem ujian
+yang tersedia secara gratis. Skybook dibuat ditujukan agar para siswa dan
 guru dapat terus belajar dan mengajar dimana saja dan kapan saja.
 -->
 
@@ -17,9 +17,9 @@ guru dapat terus belajar dan mengajar dimana saja dan kapan saja.
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
-    <title>Admin Dashboard - Learnify</title>
+    <title>Admin Dashboard - Skybook</title>
     <!-- General CSS Files -->
-    <link rel="icon" href="<?= base_url('assets/') ?>img/favicon.png" type="image/png">
+    <link rel="icon" href="<?= base_url('assets/') ?>img/new/SB2.png" type="image/png">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500;700;900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Poppins:500,600,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -27,6 +27,7 @@ guru dapat terus belajar dan mengajar dimana saja dan kapan saja.
     <link rel="stylesheet" href="<?= base_url('assets/') ?>stisla-assets/css/style.css">
     <link rel="stylesheet" href="<?= base_url('assets/') ?>stisla-assets/css/components.css">
 </head>
+
 
 <body>
 
@@ -43,7 +44,7 @@ guru dapat terus belajar dan mengajar dimana saja dan kapan saja.
                 </form>
                 <ul class="navbar-nav navbar-right">
                     <li class="dropdown"><a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user">
-                            <img alt="image" style="margin-bottom:4px !important;" src="./assets/stisla-assets/img/avatar/avatar-2.png" class="rounded-circle mr-1 my-auto border-white">
+                            <img alt="image" style="margin-bottom:4px !important;" src="./assets/stisla-assets/img/avatar/avatar-3.png" class="rounded-circle mr-1 my-auto border-white">
                             <div class="d-sm-none d-lg-inline-block" style="font-size:15px;">Hello, <?php
                                                                                                     $data['user'] = $this->db->get_where('admin', ['email' =>
                                                                                                     $this->session->userdata('email')])->row_array();
@@ -51,7 +52,7 @@ guru dapat terus belajar dan mengajar dimana saja dan kapan saja.
                                                                                                     ?></div>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right">
-                            <div class="dropdown-title">Admin - Learnify</div>
+                            <div class="dropdown-title">Admin - Skybook</div>
                             <a href="<?= base_url('welcome/logout') ?>" class="dropdown-item has-icon text-danger">
                                 <i class="fas fa-sign-out-alt"></i> Logout
                             </a>
@@ -63,8 +64,9 @@ guru dapat terus belajar dan mengajar dimana saja dan kapan saja.
                 <aside id="sidebar-wrapper">
                     <div class="sidebar-brand text-danger">
                         <div>
-                            <a href="<?= base_url('admin') ?>" style="font-size: 30px;font-weight:900;font-family: 'Poppins', sans-serif;" class="text-success text-center"><i style="font-size: 30px;" class="fas fa-graduation-cap"></i> |
-                                Learnify <sup>3</sup></a>
+                            <a href="<?= base_url('admin') ?>" >
+                                <img src="<?= base_url('assets/') ?>img/new/SB2.png" width="200px" height="170px" style="margin-top: -35px;" >
+                            </a>
                         </div>
                     </div>
                     <div class="sidebar-brand sidebar-brand-sm">
@@ -94,7 +96,7 @@ guru dapat terus belajar dan mengajar dimana saja dan kapan saja.
                                 </li>
                             </ul>
                         </li>
-                        <li class="menu-header">Management Materi</li>
+                         <li class="menu-header">Management Materi</li>
                         <li class="nav-item dropdown">
                             <a href="#" class="nav-link has-dropdown"><i class="fas fa-book"></i>
                                 <span>Materi</span></a>
@@ -105,7 +107,21 @@ guru dapat terus belajar dan mengajar dimana saja dan kapan saja.
                                 </li>
                             </ul>
                         </li>
-                        <li class="menu-header">About Developer</li>
+
+                        <li class="menu-header">Management Quiz</li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link has-dropdown"><i class="fas fa-question"></i>
+                                    <span>Quiz</span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="nav-link" href="<?= base_url('admin/data_quiz') ?>">Data Quiz</a>
+                                    </li>
+                                    <li><a class="nav-link" href="<?= base_url('admin/tambah_quiz') ?>">Tambah Quiz</a>
+                                    </li>
+                                </ul>
+                        </li>
+
+                    
+                        <!--  <li class="menu-header">About Developer</li>
                         <li class="nav-item dropdown">
                             <a href="#" class="nav-link has-dropdown"><i class="fas fa-address-card"></i>
                                 <span>Developer</span></a>
@@ -113,11 +129,11 @@ guru dapat terus belajar dan mengajar dimana saja dan kapan saja.
                                 <li><a class="nav-link" href="<?= base_url('admin/about_developer') ?>">Tentang
                                         Pembuat</a>
                                 </li>
-                                <li><a class="nav-link" href="<?= base_url('admin/about_learnify') ?>">Tentang
-                                        Learnify</a>
+                                <li><a class="nav-link" href="<?= base_url('admin/about_Skybook') ?>">Tentang
+                                        Skybook</a>
                                 </li>
                             </ul>
-                        </li>
+                        </li> -->
                 </aside>
             </div>
             <!-- End Sidebar -->
@@ -196,7 +212,7 @@ guru dapat terus belajar dan mengajar dimana saja dan kapan saja.
                                 <h2 class="card-title" style="color: black;">Tambah Materi?</h2>
                                 <hr>
                                 <p class="card-text">After I ran into Helen at a restaurant, I realized she was just office pretty drop-dead date put in in a deck for our standup today. Who's responsible for the ask for this request? who's responsible for the ask for this request? but moving the goalposts gain traction.</p>
-                                <a href="<?= base_url('admin/tambah_materi') ?>" class="btn btn-success">Tambah Materi ⭢</a>
+                                <a href="<?= base_url('admin/tambah_materi') ?>" class="btn btn-info">Tambah Materi ⭢</a>
                             </div>
                         </div>
                     </div>

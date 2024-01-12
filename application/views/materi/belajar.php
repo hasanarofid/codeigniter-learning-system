@@ -1,13 +1,13 @@
 <!--
-@Project: Learnify
+@Project: Skybook
 @Programmer: Syauqi Zaidan Khairan Khalaf
 @Website: https://linktr.ee/syauqi
 @Email : syaokay@gmail.com
 
-@About-Learnify :
+@About-Skybook :
 Web Edukasi Open Source yang dibuat oleh Syauqi Zaidan Khairan Khalaf.
-Learnify adalah Web edukasi yang dilengkapi video, materi dan sistem ujian
-yang tersedia secara gratis. Learnify dibuat ditujukan agar para siswa dan
+Skybook adalah Web edukasi yang dilengkapi video, materi dan sistem ujian
+yang tersedia secara gratis. Skybook dibuat ditujukan agar para siswa dan
 guru dapat terus belajar dan mengajar dimana saja dan kapan saja.
 -->
 
@@ -19,7 +19,7 @@ guru dapat terus belajar dan mengajar dimana saja dan kapan saja.
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="icon" href="<?= base_url('assets/') ?>img/favicon.png" type="image/png">
+    <link rel="icon" href="<?= base_url('assets/') ?>img/new/SB2.png" type="image/png">
     <title>Selamat Belajar - <?php
                                 $data['user'] = $this->db->get_where('siswa', ['email' =>
                                 $this->session->userdata('email')])->row_array();
@@ -95,7 +95,7 @@ guru dapat terus belajar dan mengajar dimana saja dan kapan saja.
                                                                         $data['user'] = $this->db->get_where('siswa', ['email' =>
                                                                         $this->session->userdata('email')])->row_array();
                                                                         echo $data['user']['nama'];
-                                                                        ?> - Learnify Students</h3>
+                                                                        ?> - Skybook Students</h3>
                         <p><?= $detail->nama_mapel ?> - Kelas <?= $detail->kelas ?></p>
                         <hr align="left" width="600;">
                         <p style="line-height: 3px;">Kita akan mempelajari tentang</p>

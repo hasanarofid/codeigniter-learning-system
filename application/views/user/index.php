@@ -1,13 +1,13 @@
 <!--
-@Project: Learnify
+@Project: Skybook
 @Programmer: Syauqi Zaidan Khairan Khalaf
 @Website: https://linktr.ee/syauqi
 @Email : syaokay@gmail.com
 
-@About-Learnify :
+@About-Skybook :
 Web Edukasi Open Source yang dibuat oleh Syauqi Zaidan Khairan Khalaf.
-Learnify adalah Web edukasi yang dilengkapi video, materi dan sistem ujian
-yang tersedia secara gratis. Learnify dibuat ditujukan agar para siswa dan
+Skybook adalah Web edukasi yang dilengkapi video, materi dan sistem ujian
+yang tersedia secara gratis. Skybook dibuat ditujukan agar para siswa dan
 guru dapat terus belajar dan mengajar dimana saja dan kapan saja.
 -->
 
@@ -19,13 +19,13 @@ guru dapat terus belajar dan mengajar dimana saja dan kapan saja.
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="icon" href="<?= base_url('assets/') ?>img/favicon.png" type="image/png">
+    <link rel="icon" href="<?= base_url('assets/') ?>img/new/SB2.png" type="image/png">
     <!-- Title -->
     <title>Selamat datang - <?php
                             $data['user'] = $this->db->get_where('siswa', ['email' =>
                             $this->session->userdata('email')])->row_array();
                             echo $data['user']['nama'];
-                            ?> - Learnify Student Page</title>
+                            ?> - Skybook Student Page</title>
     <!-- Bootstrap CSS -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="<?= base_url('assets/') ?>css/bootstrap.css">
@@ -57,7 +57,7 @@ guru dapat terus belajar dan mengajar dimana saja dan kapan saja.
             <nav class="navbar navbar-expand-lg navbar-light">
                 <div class="container">
                     <!-- Brand and toggle get grouped for better mobile display -->
-                    <a class="navbar-brand logo_h" href="<?= base_url('welcome') ?>"><img src="<?= base_url('assets/') ?>img/logo.png" alt=""></a>
+                    <a class="navbar-brand logo_h" href="<?= base_url('welcome') ?>"><img src="<?= base_url('assets/') ?>img/new/logo.png" alt=""></a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
@@ -91,9 +91,9 @@ guru dapat terus belajar dan mengajar dimana saja dan kapan saja.
             <div class="row" style="color: black; font-family: 'poppins';">
                 <div class="col-md-12 mt-1">
                     <h1 class="display-4" style="color: black; font-family:'poppins';" data-aos="fade-down" data-aos-duration="1400">Selamat Datang
-                        di Learnify <span style="font-size: 40px;">👋🏻
+                        di Skybook <span style="font-size: 40px;">👋🏻
                         </span> </h1>
-                    <p>Hello Students! , Ini merupakan halaman utama learnify ! Silahkan pilih kelas yang akan kamu
+                    <p>Hello Students! , Ini merupakan halaman utama Skybook ! Silahkan pilih kelas yang akan kamu
                         akses
                         dan pilih mata pelajaran yang ingin kamu pelajari. Selamat belajar ya students!</p>
                     <hr>
@@ -101,7 +101,7 @@ guru dapat terus belajar dan mengajar dimana saja dan kapan saja.
                                                                                                 $data['user'] = $this->db->get_where('siswa', ['email' =>
                                                                                                 $this->session->userdata('email')])->row_array();
                                                                                                 echo $data['user']['nama'];
-                                                                                                ?> - Learnify Students</h3>
+                                                                                                ?> - Skybook Students</h3>
                         <p data-aos="fade-down" data-aos-duration="1800">Silahkan pilih kelas yang akan kamu akses
                             dibawah
                             ini!

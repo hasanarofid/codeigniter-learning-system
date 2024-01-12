@@ -5,8 +5,8 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="icon" href="<?= base_url('assets/') ?>img/favicon.png" type="image/png">
-    <title>Learnify - Belajar Dimana Saja & Kapan Saja!</title>
+    <link rel="icon" href="<?= base_url('assets/') ?>img/new/SB2.png" type="image/png">
+    <title>Skybook - Belajar Dimana Saja & Kapan Saja!</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="<?= base_url('assets/') ?>css/bootstrap.css">
     <link rel="stylesheet" href="<?= base_url('assets/') ?>vendors/linericon/style.css">
@@ -46,7 +46,7 @@
                     </ul>
                 </div>
                 <div class="float-right">
-                    <a class="dn_btn" href="mailto:apps.learnify@gmail.com">apps.learnify@gmail.com</a>
+                    <a class="dn_btn" href="mailto:apps.Skybook@gmail.com">apps.Skybook@gmail.com</a>
                 </div>
             </div>
         </div>
@@ -87,7 +87,7 @@
             </div>
             <div class="container">
                 <div class="banner_content text-center">
-                    <h2>Pendaftaran Learnify</h2>
+                    <h2>Pendaftaran Skybook</h2>
                     <div class="page_link">
                         <a href="<?= base_url('welcome') ?>">Beranda</a>
                         <a href="<?= base_url('user/registration') ?>">Pendaftaran</a>
@@ -104,7 +104,7 @@
         <div class="row bg-registration p-3">
             <div class="col-md-12 text-center">
                 <p class="registration-title font-weight-bold display-4 mt-4" style="font-size: 50px;">
-                    Pendaftaran Learnify</p>
+                    Pendaftaran Skybook</p>
                 <p style="line-height:-30px;margin-top:-20px;">Silahkan isi data data yang diperlukan dibawah ini </p>
                 <hr>
             </div>
