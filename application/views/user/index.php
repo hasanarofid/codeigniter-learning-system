@@ -57,7 +57,7 @@ guru dapat terus belajar dan mengajar dimana saja dan kapan saja.
             <nav class="navbar navbar-expand-lg navbar-light">
                 <div class="container">
                     <!-- Brand and toggle get grouped for better mobile display -->
-                    <a class="navbar-brand logo_h" href="<?= base_url('welcome') ?>"><img src="<?= base_url('assets/') ?>img/new/logo.png" alt=""></a>
+                    <a class="navbar-brand logo_h" href="<?= base_url('welcome') ?>"><img src="<?= base_url('assets/') ?>img/new/SB2.png" width="150px" height="100px" alt=""></a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
@@ -148,8 +148,55 @@ guru dapat terus belajar dan mengajar dimana saja dan kapan saja.
     </div>
     <!-- End Class Card -->
 
+    <div class="container">
+        <div class="bg-white mx-auto p-4 buat-text" data-aos="fade-down" data-aos-duration="1400" style="width: 100%; border-radius:10px;">
+            <div class="row" style="color: black; font-family: 'poppins';">
+                <div class="col-md-12 mt-1">
+                    <h1 class="display-4" style="color: black; font-family:'poppins';" data-aos="fade-down" data-aos-duration="1400">Quiz
+                        di Skybook <span style="font-size: 40px;">👋🏻
+                        </span> </h1>
+                    <hr>
+                    <h4 style="line-height: 4px;" data-aos="fade-down" data-aos-duration="1700"><?php
+                                                                                                $data['user'] = $this->db->get_where('siswa', ['email' =>
+                                                                                                $this->session->userdata('email')])->row_array();
+                                                                                                echo $data['user']['nama'];
+                                                                                                ?> - Skybook Students</h3>
+                        <p data-aos="fade-down" data-aos-duration="1800">Silahkan pilih quiz yang akan kamu akses
+                            dibawah
+                            ini!
+                        </p>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <br>
+
+
+    <!-- Start Class Card -->
+    <div class="container">
+        <div class="row mt-4 mb-5 justify-content-center">
+            <div class="col-md-12">
+
+                <div class="row">
+                <?php foreach ($quiz as $list): ?>
+                    <div class="col-sm-4 mb-2 d-flex justify-content-center" data-aos-duration="1900" data-aos="fade-right">
+                        <a href="<?= base_url('user/quiz/'.$list->id_materi) ?>" class="text-decoration-none">
+                            <div class="card-kelas text-center">
+                                <div class="card-body">
+                                    <img src="<?= base_url('assets/') ?>img/<?= $list->nama_mapel.'.png' ?>" style="object-fit: cover;" class="card-img-top img-fluid" alt="...">
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                <?php endforeach; ?>
+
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Class Card -->
 
 
     <!-- Start Animate On Scroll -->

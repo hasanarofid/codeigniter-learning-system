@@ -14,11 +14,36 @@ class User extends CI_Controller
 
     public function index()
     {
-        $data['user'] = $this->db->get_where('siswa', ['email' =>
-            $this->session->userdata('email')])->row_array();
+        $this->load->model('m_quiz');
 
-        $this->load->view('user/index');
+        $data['user'] = $this->db->get_where('siswa', ['email' =>
+        $this->session->userdata('email')])->row_array();
+        $data['quiz'] = $this->m_quiz->tampil_data2();
+        // var_dump($data['quiz']);die;
+
+        $this->load->view('user/index', $data);
         $this->load->view('template/footer');
+    }
+
+    public function quiz($id)
+    {
+        $this->load->model('m_quiz');
+        $where = array('quiz.id_materi' => $id);
+        $data['quiz'] = $this->m_quiz->update_quiz($where, 'quiz');
+        // var_dump($data['quiz']);die;
+        $data['id'] = $id;
+        $this->load->view('user/quiz', $data);
+        $this->load->view('template/footer');
+    }
+
+    public function submit_jawaban($id){
+        var_dump($_POST);die;
+        $this->load->model('m_quiz');
+        $where = array('quiz.id_materi' => $id);
+        $data['quiz'] = $this->m_quiz->update_quiz($where, 'quiz');
+        var_dump($data['quiz']);die;
+        $data['id'] = $id;
+
     }
 
     public function kelas10()

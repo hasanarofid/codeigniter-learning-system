@@ -41,7 +41,7 @@ guru dapat terus belajar dan mengajar dimana saja dan kapan saja.
             <div class="d-flex flex-wrap align-items-stretch">
                 <div class="col-lg-4 col-md-6 col-12 order-lg-1 min-vh-100 order-2 bg-white">
                     <div class="p-4 m-3">
-                        <a href="<?= base_url('welcome') ?>"> <img src="<?= base_url('assets/') ?>/img/logo.png" alt="logo" width="150" class=" mb-5 mt-2"></a>
+                        <a href="<?= base_url('welcome') ?>"> <img src="<?= base_url('assets/') ?>/img/new/SB2.png" alt="logo" width="150px" height="150px"></a>
                         <h4 class="text-dark font-weight-normal">Selamat datang di <span class="font-weight-bold">Skybook</span>
                         </h4>
                         <p class="text-muted">Sebelum masuk ke halaman guru, anda harus login terlebih dahulu sebagai
