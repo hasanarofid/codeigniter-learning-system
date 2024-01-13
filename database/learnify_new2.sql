@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jan 13, 2024 at 04:34 PM
+-- Generation Time: Jan 13, 2024 at 06:21 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 7.4.28
 
@@ -80,6 +80,16 @@ CREATE TABLE `jawaban` (
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `jawaban`
+--
+
+INSERT INTO `jawaban` (`id`, `id_siswa`, `id_quiz`, `jawaban_siswa`, `benar`, `skor`, `created_at`) VALUES
+(1, 39, 2, 'A', 1, 1, '2024-01-13 10:22:38'),
+(2, 39, 3, 'A', 0, 0, '2024-01-13 10:22:38'),
+(3, 39, 4, 'B', 0, 0, '2024-01-13 11:17:52'),
+(4, 39, 5, 'A', 1, 1, '2024-01-13 11:17:52');
+
 -- --------------------------------------------------------
 
 --
@@ -153,7 +163,7 @@ INSERT INTO `materi` (`id`, `nama_guru`, `nama_mapel`, `video`, `deskripsi`, `ke
 CREATE TABLE `quiz` (
   `id` int(11) NOT NULL,
   `pertanyaan` text NOT NULL,
-  `id_user_pembuat` int(11) NOT NULL,
+  `user_pembuat` varchar(100) NOT NULL,
   `id_materi` int(11) NOT NULL,
   `pilihan_a` varchar(255) NOT NULL,
   `pilihan_b` varchar(255) NOT NULL,
@@ -169,9 +179,11 @@ CREATE TABLE `quiz` (
 -- Dumping data for table `quiz`
 --
 
-INSERT INTO `quiz` (`id`, `pertanyaan`, `id_user_pembuat`, `id_materi`, `pilihan_a`, `pilihan_b`, `pilihan_c`, `pilihan_d`, `jawaban_benar`, `pembahasan`, `created_at`, `updated_at`) VALUES
-(2, 'Sebutkan Ibukota Jawa Timur?', 0, 61, 'Surabaya', 'Malang', 'Semarang', 'Samarinda', 'a', 'Jawabannya Surabaya', '2024-01-13 13:56:49', '2024-01-13 13:56:49'),
-(3, 'Sebutkan Ibukota Jawa Tengah', 0, 61, 'Solo', 'Semarang', 'Surabaya', 'Bandung', 'b', 'Jawabannya B', '2024-01-13 13:57:29', '2024-01-13 13:57:29');
+INSERT INTO `quiz` (`id`, `pertanyaan`, `user_pembuat`, `id_materi`, `pilihan_a`, `pilihan_b`, `pilihan_c`, `pilihan_d`, `jawaban_benar`, `pembahasan`, `created_at`, `updated_at`) VALUES
+(2, 'Sebutkan Ibukota Jawa Timur?', '0', 61, 'Surabaya', 'Malang', 'Semarang', 'Samarinda', 'A', 'Jawabannya Surabaya', '2024-01-13 13:56:49', '2024-01-13 16:08:16'),
+(3, 'Sebutkan Ibukota Jawa Tengah', '0', 61, 'Solo', 'Semarang', 'Surabaya', 'Bandung', 'B', 'Jawabannya B', '2024-01-13 13:57:29', '2024-01-13 16:08:19'),
+(4, 'berapa hasil dari 1 + 1 ?', 'Ahmad Saugi', 38, '3', '10', '2', '90', 'C', 'jawabannya C', '2024-01-13 17:15:31', '2024-01-13 17:15:31'),
+(5, 'berapa 1 x 1?', 'Ahmad Saugi', 38, '1', '23', '12', '11', 'A', 'jawabannya A', '2024-01-13 17:17:04', '2024-01-13 17:17:04');
 
 -- --------------------------------------------------------
 
@@ -271,7 +283,7 @@ ALTER TABLE `token`
 -- AUTO_INCREMENT for table `jawaban`
 --
 ALTER TABLE `jawaban`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `materi`
@@ -283,7 +295,7 @@ ALTER TABLE `materi`
 -- AUTO_INCREMENT for table `quiz`
 --
 ALTER TABLE `quiz`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `siswa`
