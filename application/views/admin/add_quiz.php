@@ -153,6 +153,7 @@ guru dapat terus belajar dan mengajar dimana saja dan kapan saja.
                             <div id="detail" class="card-body">
                                 <form method="POST" enctype="multipart/form-data" action="<?= base_url('admin/tambah_quiz') ?>">
                                     <div class="col-md-12 bg-white" style="border-radius:3px;box-shadow:rgba(0, 0, 0, 0.03) 0px 4px 8px 0px">
+
                                         <form method="post" enctype="multipart/form-data" action="<?= base_url('guru/tambah_quiz') ?>">
                                             <input type="hidden" name="id">
                                             <div class="form-row">
@@ -203,10 +204,10 @@ guru dapat terus belajar dan mengajar dimana saja dan kapan saja.
                                                 <label for="inputState">Jawaban Benar</label>
                                                 <select required id="inputState" name="jawaban_benar" class="form-control">
                                                     <option selected>Pilih disini</option>
-                                                    <option value="a">A</option>
-                                                    <option value="b">B</option>
-                                                    <option value="c">C</option>
-                                                    <option value="d">D</option>
+                                                    <option value="A">A</option>
+                                                    <option value="B">B</option>
+                                                    <option value="C">C</option>
+                                                    <option value="D">D</option>
                                                 </select>
                                             </div>
                                             <div class="form-group">
@@ -215,8 +216,10 @@ guru dapat terus belajar dan mengajar dimana saja dan kapan saja.
                                             </div>
                                             <button type="submit" class="btn btn-block btn-info">Tambah
                                                 Quiz ⭢</button>
-                                    </div>
+                                    
+                                            </div>
                                 </form>
+                                
                             </div>
                         </div>
                         <br>

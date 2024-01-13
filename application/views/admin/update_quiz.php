@@ -193,10 +193,10 @@ guru dapat terus belajar dan mengajar dimana saja dan kapan saja.
                                             <div class="form-group">
                                                 <label for="inputState">Jawaban Benar</label>
                                                 <select required id="inputState" name="jawaban_benar" class="form-control">
-                                                    <option <?php echo ($u->jawaban_benar == 'a') ? 'selected' : ''; ?> value="a">A</option>
-                                                    <option <?php echo ($u->jawaban_benar == 'b') ? 'selected' : ''; ?> value="b">B</option>
-                                                    <option <?php echo ($u->jawaban_benar == 'c') ? 'selected' : ''; ?> value="c">C</option>
-                                                    <option <?php echo ($u->jawaban_benar == 'd') ? 'selected' : ''; ?> value="d">D</option>
+                                                    <option <?php echo ($u->jawaban_benar == 'A') ? 'selected' : ''; ?> value="A">A</option>
+                                                    <option <?php echo ($u->jawaban_benar == 'B') ? 'selected' : ''; ?> value="B">B</option>
+                                                    <option <?php echo ($u->jawaban_benar == 'C') ? 'selected' : ''; ?> value="C">C</option>
+                                                    <option <?php echo ($u->jawaban_benar == 'D') ? 'selected' : ''; ?> value="D">D</option>
                                                 </select>
 
                                             </div>

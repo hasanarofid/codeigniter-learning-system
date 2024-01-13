@@ -37,14 +37,57 @@ class User extends CI_Controller
     }
 
     public function submit_jawaban($id){
-        var_dump($_POST);die;
+        // var_dump($_POST);die;
         $this->load->model('m_quiz');
         $where = array('quiz.id_materi' => $id);
         $data['quiz'] = $this->m_quiz->update_quiz($where, 'quiz');
-        var_dump($data['quiz']);die;
-        $data['id'] = $id;
+        $siswa = $this->db->get_where('siswa', ['email' =>
+        $this->session->userdata('email')])->row_array();
+        foreach ($_POST['id_quiz'] as $quizId => $value) {
+            $where = array('id' => $value);
+            $checkjawaban = $this->m_quiz->detail_quiz($where);
+            $jawabanSiswa = $_POST['jawaban'][$quizId];
+            // Perform scoring logic based on correct answers. Update 'benar' and 'skor' accordingly.
+        
+            // Example scoring logic:
+            $benar = ($jawabanSiswa === $checkjawaban->jawaban_benar) ? 1 : 0;
+            $skor = ($benar === 1) ? 1 : 0;
+            // var_dump($benar.' '.$skor);die;
+            // Insert into Jawaban table
+            $jawabanData = array(
+                'id_siswa' =>$siswa['id'],
+                'id_quiz' => $value,
+                'jawaban_siswa' => $jawabanSiswa,
+                'benar' => $benar,
+                'skor' => $skor,
+                'created_at' => date('Y-m-d H:i:s')
+            );
+            $this->db->insert('jawaban', $jawabanData);
+        }
+
+
+        $this->session->set_flashdata('success-reg', 'Berhasil!');
+        // redirect(base_url('welcome'));
+        $redirectUrl = base_url('user/detail_jawaban').'/'.$id.'/'.$siswa['id'];
+        redirect($redirectUrl);
+    }
+
+    //detail_jawaban
+    public function detail_jawaban($id, $id_siswa) {
+
+        $this->load->model('m_jawaban');
+        $where = array('jawaban.id_siswa' => $id_siswa,'quiz.id_materi'=>$id);
+        $data['jawaban'] = $this->m_jawaban->jawaban_siswa($where, 'jawaban');
+        // var_dump($data['jawaban']);die;
+
+        $data['user'] = $this->db->get_where('siswa', ['email' =>
+            $this->session->userdata('email')])->row_array();
+
+        $this->load->view('user/detail_jawaban',$data);
+        $this->load->view('template/footer');
 
     }
+    
 
     public function kelas10()
     {

@@ -64,6 +64,9 @@ class Admin extends CI_Controller
     // tambah quiz
     public function tambah_quiz()
     {
+        $admin = $this->db->get_where('admin', ['email' =>
+        $this->session->userdata('email')])->row_array();
+
         $this->form_validation->set_rules('id_materi', 'Materi', 'required', [
             'required' => 'Harap isi kolom materi.'
         ]);
@@ -74,6 +77,7 @@ class Admin extends CI_Controller
 
             $data = [
                 'id_materi' => htmlspecialchars($this->input->post('id_materi', true)),
+                'user_pembuat'=>$admin['username'],
                 'pertanyaan' => htmlspecialchars($this->input->post('pertanyaan', true)),
                 'pilihan_a' => htmlspecialchars($this->input->post('pilihan_a', true)),
                 'pilihan_b' => htmlspecialchars($this->input->post('pilihan_b', true)),

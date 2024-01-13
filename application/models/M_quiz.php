@@ -19,9 +19,9 @@ class M_quiz extends CI_Model
         ->result();
     }
 
-    public function detail_quiz($id = null)
+    public function detail_quiz($where = array())
     {
-        $query = $this->db->get_where('quiz', array('id' => $id))->row();
+        $query = $this->db->get_where('quiz', $where)->row();
         return $query;
     }
 

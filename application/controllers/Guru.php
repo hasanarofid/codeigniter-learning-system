@@ -31,29 +31,32 @@ class Guru extends CI_Controller
         redirect('admin/data_quiz');
     }
     // Management Quiz
-    public function data_quiz(){
+    public function add_quiz(){
         $this->load->model('m_quiz');
 
         $data['user'] = $this->db->get_where('admin', ['email' =>
             $this->session->userdata('email')])->row_array();
 
         $data['user'] = $this->m_quiz->tampil_data();
-        $this->load->view('admin/data_quiz', $data);
+        $this->load->view('guru/add_quiz', $data);
     }
 
     // tambah quiz
     public function tambah_quiz()
     {
+        $guru =$this->db->get_where('guru', ['email' =>
+        $this->session->userdata('email')])->row_array();
         $this->form_validation->set_rules('id_materi', 'Materi', 'required', [
             'required' => 'Harap isi kolom materi.'
         ]);
         if ($this->form_validation->run() == false) {
-            $this->load->view('admin/add_quiz');
+            $this->load->view('guru/add_quiz');
         } else {
             // var_dump($this->session->userdata());die;
 
             $data = [
                 'id_materi' => htmlspecialchars($this->input->post('id_materi', true)),
+                'user_pembuat'=>$guru['nama_guru'],
                 'pertanyaan' => htmlspecialchars($this->input->post('pertanyaan', true)),
                 'pilihan_a' => htmlspecialchars($this->input->post('pilihan_a', true)),
                 'pilihan_b' => htmlspecialchars($this->input->post('pilihan_b', true)),
@@ -64,8 +67,8 @@ class Guru extends CI_Controller
             ];
 
             $this->db->insert('quiz', $data);
-            $this->session->set_flashdata('success-reg', 'Berhasil!');
-            redirect(base_url('admin/data_quiz'));
+            $this->session->set_flashdata('success-quiz', 'Berhasil!');
+            redirect(base_url('guru'));
         }
     }
 

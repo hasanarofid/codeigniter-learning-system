@@ -112,7 +112,7 @@ guru dapat terus belajar dan mengajar dimana saja dan kapan saja.
     <!--begin::Layout Skins(used by all pages) -->
 
     <!--end::Layout Skins -->
-    <link rel="shortcut icon" href="<?=base_url('assets')?>/img/favicon.png" />
+    <link rel="shortcut icon" href="<?=base_url('assets')?>/img/new/SB2.png" />
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9.10.0/dist/sweetalert2.all.min.js"></script>
 </head>
 
@@ -128,8 +128,8 @@ guru dapat terus belajar dan mengajar dimana saja dan kapan saja.
     <!-- begin:: Header Mobile -->
     <div id="kt_header_mobile" class="kt-header-mobile  kt-header-mobile--fixed ">
         <div class="kt-header-mobile__logo">
-            <a href="<?=base_url('guru/add_materi')?>">
-                <img alt="Logo" src="<?=base_url('assets')?>/img/new/SB2.png" width="90px;" />
+            <a class="navbar-brand logo_h" href="<?=base_url('guru/add_materi')?>">
+                <img alt="Logo" src="<?=base_url('assets')?>/img/new/SB2.png" width="150px;" height="150px" />
             </a>
         </div>
         <div class="kt-header-mobile__toolbar">
@@ -154,7 +154,7 @@ guru dapat terus belajar dan mengajar dimana saja dan kapan saja.
                 <div class="kt-aside__brand kt-grid__item " id="kt_aside_brand">
                     <div class="kt-aside__brand-logo">
                         <a href="<?=base_url('guru')?>">
-                            <img alt="Logo" width="35px;" src="<?=base_url('assets')?>/img/new/SB2.png" />
+                            <img alt="Logo" width="70px;" src="<?=base_url('assets')?>/img/new/SB2.png" />
                         </a>
                     </div>
                 </div>
@@ -193,6 +193,11 @@ guru dapat terus belajar dan mengajar dimana saja dan kapan saja.
                                                 href="<?=base_url('guru/add_materi')?>" class="kt-menu__link "><i
                                                     class="kt-menu__link-icon la la-commenting"></i><span
                                                     class="kt-menu__link-text">Materi</span></a></li>
+
+                                                    <li class="kt-menu__item " aria-haspopup="true"><a
+                                                href="<?=base_url('guru/add_quiz')?>" class="kt-menu__link "><i
+                                                    class="kt-menu__link-icon la la-commenting"></i><span
+                                                    class="kt-menu__link-text">Quiz</span></a></li>
                                     </ul>
                                 </div>
                             </li>
@@ -230,6 +235,21 @@ guru dapat terus belajar dan mengajar dimana saja dan kapan saja.
                                                     href="<?=base_url('guru/add_materi')?>" class="kt-menu__link "><i
                                                         class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span
                                                         class="kt-menu__link-text">Tambah Materi</span></a></li>
+                                        </ul>
+                                    </div>
+                                </li>
+
+                                <li class="kt-menu__item  kt-menu__item--submenu kt-menu__item--rel"
+                                    data-ktmenu-submenu-toggle="click" aria-haspopup="true"><a href="javascript:;"
+                                        class="kt-menu__link kt-menu__toggle"><span
+                                            class="kt-menu__link-text">Quiz</span><i
+                                            class="kt-menu__hor-arrow la la-angle-down"></i></a>
+                                    <div class="kt-menu__submenu kt-menu__submenu--classic kt-menu__submenu--left">
+                                        <ul class="kt-menu__subnav">
+                                            <li class="kt-menu__item " aria-haspopup="true"><a
+                                                    href="<?=base_url('guru/add_quiz')?>" class="kt-menu__link "><i
+                                                        class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span
+                                                        class="kt-menu__link-text">Tambah Quiz</span></a></li>
                                         </ul>
                                     </div>
                                 </li>
@@ -892,6 +912,19 @@ echo $data['user']['nama_guru'];
             })
             </script>
             <?php endif;?>
+
+            <?php if ($this->session->flashdata('success-quiz')): ?>
+            <script>
+            Swal.fire({
+                icon: 'success',
+                title: 'Quiz Telah Ditambahkan!',
+                text: 'Selamat data ditambah!',
+                showConfirmButton: false,
+                timer: 2500
+            })
+            </script>
+            <?php endif;?>
+
             <?php if ($this->session->flashdata('user-delete')): ?>
             <script>
             Swal.fire({

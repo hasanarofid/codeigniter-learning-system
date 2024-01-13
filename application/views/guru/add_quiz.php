@@ -18,7 +18,7 @@ guru dapat terus belajar dan mengajar dimana saja dan kapan saja.
 
 <head>
     <meta charset="utf-8" />
-    <title>Skybook - Tambah Materi</title>
+    <title>Skybook - Tambah Quiz</title>
     <meta name="description" content="Latest updates and statistic charts">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -332,7 +332,7 @@ echo $data['user']['nama_guru'];
                         <div class="kt-subheader__main">
                             <h1 class="kt-subheader__title font-weight-bold"
                                 style="font-size: 35px !important; letter-spacing:-1px;">
-                                Tambah Materi </h1>
+                                Tambah Quiz </h1>
                         </div>
                         <div class="kt-subheader__toolbar">
                             <div class="kt-subheader__wrapper">
@@ -374,56 +374,71 @@ echo $data['user']['nama_guru'];
                         <div class="row">
                             <div class="col-md-12 bg-white p-4 container"
                                 style="border-radius:3px;box-shadow:rgba(0, 0, 0, 0.03) 0px 4px 8px 0px">
-                                <form method="post" enctype="multipart/form-data"
-                                    action="<?=base_url('guru/add_materi')?>">
-                                    <input type="hidden" name="id">
-                                    <div class="form-row">
-                                        <div class="form-group col-md-12">
-                                            <label for="inputEmail4">Nama Guru</label>
-                                            <input required type="text" readonly name="nama_guru" value="<?php
-$data['user'] = $this->db->get_where('guru', ['email' =>
-    $this->session->userdata('email')])->row_array();
-echo $data['user']['nama_guru'];?>" class="form-control" id="inputEmail4">
-                                        </div>
-                                    </div>
-                                    <div class="form-row">
-                                        <div class="form-group col-md-12">
-                                            <label for="inputEmail4">Nama Mata Pelajaran</label>
-                                            <input required type="text" readonly name="nama_mapel" value="<?php
-$data['user'] = $this->db->get_where('guru', ['email' =>
-    $this->session->userdata('email')])->row_array();
-echo $data['user']['nama_mapel'];?>" class="form-control" id="inputEmail4">
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="input-group">
-                                            <div class="custom-file">
-                                                <input required type="file" name="video" class="custom-file-input"
-                                                    id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
-                                                <label class="custom-file-label" for="inputGroupFile01">Upload Video
-                                                    Materi Disini</label>
+                                <form method="post" enctype="multipart/form-data" action="<?= base_url('guru/tambah_quiz') ?>">
+                                            <input type="hidden" name="id">
+                                            <div class="form-row">
+                                            <div class="form-group col-md-12">
+                                                <label for="inputEmail4">Materi</label>
+                                                <input type="hidden" name="id_materi" id="id_materi_hidden">
+                                                <input autocomplete="off" required type="text" list="namamateri" id="nama_materi" name="nama_materi" class="form-control">
+                                                <small>List Materi sudah tersedia di autocomplete, kalian hanya tinggal klik input area nya atau dengan cara menulis namanya dan klik Materi yang akan dipilih.</small>
+                                                <datalist id="namamateri">
+                                                    <?php
+                                                    include "koneksi.php";
+                                                    $qry = mysqli_query($koneksi, "SELECT id, nama_mapel FROM materi GROUP BY nama_mapel");
+                                                    while ($t = mysqli_fetch_array($qry)) {
+                                                        echo "<option value='$t[id]' data-nama='$t[nama_mapel]'>$t[nama_mapel]</option>";
+                                                    }
+                                                    ?>
+                                                </datalist>
                                             </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="exampleFormControlTextarea1">Deskripsi Materi</label>
-                                        <textarea class="form-control" required name="deskripsi"
-                                            id="exampleFormControlTextarea1" rows="3"></textarea>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="inputState">Kelas</label>
-                                        <select required id="inputState" name="kelas" class="form-control">
-                                            <option selected>Pilih disini</option>
-                                            <option value="X">X ( Kelas Sepuluh )</option>
-                                            <option value="XI">XI ( Kelas Sebelas )</option>
-                                            <option value="XII">XII ( Kelas Dua Belas )</option>
-                                        </select>
-                                    </div>
-                                    <button type="submit" class="btn btn-info">Tambah materi</button>
-                            </div>
-                        </div>
 
-                        </form>
+
+                                            </div>
+                                            
+                                            <div class="form-group">
+                                                <label for="exampleFormControlTextarea1">Pertanyaan</label>
+                                                <textarea class="form-control" required name="pertanyaan" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="exampleFormControlTextarea1">Pilihan A</label>
+                                                <input type="text" class="form-control" name="pilihan_a" id="pilihan_a" >
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="exampleFormControlTextarea1">Pilihan B</label>
+                                                <input type="text" class="form-control" name="pilihan_b" id="pilihan_b" >
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="exampleFormControlTextarea1">Pilihan C</label>
+                                                <input type="text" class="form-control" name="pilihan_c" id="pilihan_c" >
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="exampleFormControlTextarea1">Pilihan D</label>
+                                                <input type="text" class="form-control" name="pilihan_d" id="pilihan_d" >
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="inputState">Jawaban Benar</label>
+                                                <select required id="inputState" name="jawaban_benar" class="form-control">
+                                                    <option selected>Pilih disini</option>
+                                                    <option value="A">A</option>
+                                                    <option value="B">B</option>
+                                                    <option value="C">C</option>
+                                                    <option value="D">D</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="exampleFormControlTextarea1">Pembahasan</label>
+                                                <textarea class="form-control" required name="pembahasan" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                            </div>
+                                            <button type="submit" class="btn btn-block btn-info">Tambah
+                                                Quiz ⭢</button>
+                                    
+                                            </div>
+                                </form>
                     </div>
                 </div>
 
@@ -456,6 +471,36 @@ echo $data['user']['nama_mapel'];?>" class="form-control" id="inputEmail4">
     <div id="kt_scrolltop" class="kt-scrolltop">
         <i class="fa fa-arrow-up"></i>
     </div>
+
+    <script>
+           document.getElementById('nama_materi').addEventListener('input', function() {
+        var selectedOption = document.querySelector('#namamateri option[value="' + this.value + '"]');
+        if (selectedOption) {
+            var namaMapel = selectedOption.getAttribute('data-nama');
+            var idMateri = selectedOption.value;
+
+            // Menyimpan nilai id_materi ke hidden input
+            document.getElementById('id_materi_hidden').value = idMateri;
+
+            // Mengganti nilai input dengan nama_mapel
+            this.value = namaMapel;
+        } else {
+            // Reset nilai hidden input jika tidak ada opsi yang cocok
+            document.getElementById('id_materi_hidden').value = '';
+        }
+    });
+            function autofill() {
+                var nama_guru = $("#namaguru").val();
+                $.ajax({
+                    url: '../autofill.php',
+                    data: "nama_guru=" + nama_guru,
+                }).done(function(data) {
+                    var json = data,
+                        obj = JSON.parse(json);
+                    $('#nama_mapel').val(obj.nama_mapel);
+                });
+            }
+        </script>
 
     <!-- end::Scrolltop -->
 
